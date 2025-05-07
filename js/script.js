@@ -13,23 +13,13 @@ const allWeatherData = await loadAllWeatherData();
 console.log(allWeatherData);
 
 
+// ausgewählte Daten aus der API
+let sortedWeatherData = [];
+console.log(sortedWeatherData);
+
+
 // Unix-Timestamp in lesbare Zeit umwandeln
-function formatUnixToTime(unixTimestamp) {
-    const date = new Date(unixTimestamp * 1000);
-    return date.toLocaleTimeString('de-DE', {
-        hour: '2-digit',
-        minute: '2-digit'
-    });
-}
-console.log(formatUnixToTime(allWeatherData.current_weather.time));
 
-
-// Daten sortieren
-/* let sortedWeatherData = [];
-allWeatherData.forEach(location)
-
-console.log(sortedWeatherData); */
 
 
 // Daten über DOM in HTML einfügen
-/* const startmap_container = document.querySelector('#locations'); */
