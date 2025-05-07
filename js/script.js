@@ -9,8 +9,23 @@ async function loadWeather() {
         return false;
     }
 }
-const data = await loadWeather();
-console.log(data); // gibt die Daten der API oder false in der Konsole aus
+const allData = await loadWeather();
+console.log(allData);
+
+let sortedData = [];
+allData.forEach(location => {
+    sortedData.push({
+        name: location.name,
+        lat: location.latitude,
+        lon: location.longitude,
+        wind_speed: location.wind_speed_10m_max,
+        wind_direction: location.wind_direction_10m,
+        temperature: location.temperature_2m
+    });
+});
+
+console.log(sortedData);
+
 
 // Daten über DOM in HTML einfügen
 const startmap_container = document.querySelector('#startmap');
