@@ -1,5 +1,5 @@
 // Daten der API abfragen
-async function loadWeather() {
+async function loadAllWeatherData() {
     const url = 'https://api.open-meteo.com/v1/forecast?latitude=43,54&longitude=3,4&daily=sunset,wind_speed_10m_max&hourly=wind_speed_10m,wind_direction_10m,temperature_2m&timeformat=unixtime'; // mit korrekter API-URL ersetzen
     try {
         const response = await fetch(url);
@@ -9,23 +9,16 @@ async function loadWeather() {
         return false;
     }
 }
-const allData = await loadWeather();
-console.log(allData);
+const allWeatherData = await loadAllWeatherData();
+console.log(allWeatherData);
 
-let sortedData = [];
-allData.forEach(location => {
-    sortedData.push({
-        name: location.name,
-        lat: location.latitude,
-        lon: location.longitude,
-        wind_speed: location.wind_speed_10m_max,
-        wind_direction: location.wind_direction_10m,
-        temperature: location.temperature_2m
-    });
-});
 
-console.log(sortedData);
+// Daten sortieren
+let sortedWeatherData = [];
+allWeatherData.forEach(location)
+
+console.log(sortedWeatherData);
 
 
 // Daten über DOM in HTML einfügen
-const startmap_container = document.querySelector('#startmap');
+const startmap_container = document.querySelector('#locations');
